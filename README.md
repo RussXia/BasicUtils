@@ -12,8 +12,8 @@
 - 4.利用HttpClient进行post请求的工具类<br>
 - 5.图片压缩工具类<br>
 - 6.价格计算工具类<br>
-- 7.uuid生成工具类(对 java.util.UUID工具类的简单封装,todo)<br>
+- 7.uuid生成工具类(对 java.util.UUID工具类的简单封装,todo)
 
 #### 1.3 关于
-<br>个人博客：<http://ruzzzz.github.io/>
-<br>邮箱：<xzy199400@foxmail.com>或<xzy199400@gmail.com>(gmail查收频率比较低)
+个人博客：<http://ruzzzz.github.io/><br>
+邮箱：<xzy199400@foxmail.com>或<xzy199400@gmail.com>(gmail查收频率比较低)
