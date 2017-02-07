@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <property resource="./config.properties" />
+    <!-- 这个是要配置输出文件的 -->
+    <jmxConfigurator />
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%date [%thread] %-5level %logger{80} - %msg%n</pattern>
+        </layout>
+    </appender>
+    <!-- 文件输出日志 (文件大小策略进行文件输出，超过指定大小对文件备份) -->
+    <appender name="logfile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <Encoding>UTF-8</Encoding>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <File>${xzy.log.path}/basic.log</File>
+            <FileNamePattern>${xzy.log.path}/.%d{yyyy-MM-dd}.log</FileNamePattern>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>2MB</MaxFileSize>
+        </triggeringPolicy>
+        <layout class="ch.qos.logback.classic.html.HTMLLayout">
+            <pattern>%date%level%thread%10logger%file%line%msg</pattern>
+        </layout>
+    </appender>
+    <!-- Output by Email -->
+    <!--
+    <appender name="Email" class="ch.qos.logback.classic.net.SMTPAppender">
+        <SMTPHost>stmp host name</SMTPHost>
+        <To>Email Address</To>
+        <To>Email Address</To>
+        <From>Email Address</From>
+        <Subject>TESTING Email Function: %logger{20} - %m</Subject>
+        <layout class="ch.qos.logback.classic.html.HTMLLayout">
+             <pattern>%date%level%thread%10logger%file%line%msg</pattern>
+        </layout>
+    </appender> -->
+
+    <!-- Output to Database -->
+    <!--
+    <appender name="DB" class="ch.qos.logback.classic.db.DBAppender">
+        <connectionSource class="ch.qos.logback.core.db.DriverManagerConnectionSource">
+             <driverClass>com.mysql.jdbc.Driver</driverClass>
+             <url>jdbc:mysql://localhost:3306/test</url>
+             <user>root</user>
+             <password>trend_dev</password>
+        </connectionSource>
+    </appender> -->
+    <root>
+        <level value="debug" />
+        <appender-ref ref="stdout" />
+        <appender-ref ref="logfile" />
+    </root>
+
+</configuration>
