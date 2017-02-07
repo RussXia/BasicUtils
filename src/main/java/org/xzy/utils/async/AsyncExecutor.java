@@ -14,7 +14,12 @@ import java.util.concurrent.*;
 @Slf4j
 public class AsyncExecutor {
     private static Map<String, Method> methodMap = new ConcurrentHashMap<String, Method>();
-    private static ExecutorService exec = new ThreadPoolExecutor(20, 50, 6000,
+    /**
+     * corePoolSize:
+     * maximumPoolSize:
+     *
+     */
+    private static ExecutorService exec = new ThreadPoolExecutor(20, 50, 6000L,
             TimeUnit.MILLISECONDS, new ArrayBlockingQueue<Runnable>(1000));
 
     public static void asynInvoke(Object invoker, String methodName,
